@@ -1,7 +1,7 @@
 <template>
   <v-row align="center" justify="center" border="2px solid">
     <v-col cols="5">
-      <v-form>
+      <v-form @submit.prevent="register">
         <h2>Registeration Form:</h2>
         <v-text-field
           v-model="user.name"
@@ -13,7 +13,7 @@
         <v-text-field
           v-model="user.username"
           :error-messages="nameErrors"
-          :counter="10"
+          :counter="20"
           label="UserName"
           required
         ></v-text-field>
@@ -33,7 +33,7 @@
          <v-text-field
           v-model="user.website"
           :error-messages="emailErrors"
-          :counter="10"
+          :counter="20"
           label="Your Website"
           required
         ></v-text-field>
@@ -42,21 +42,21 @@
           <v-text-field
             v-model="user.address.street"
             :error-messages="nameErrors"
-            :counter="10"
+            :counter="20"
             label="Street Name"
             required
           ></v-text-field>
           <v-text-field
             v-model="user.address.suite"
             :error-messages="nameErrors"
-            :counter="10"
+            :counter="15"
             label="Suite Name"
             required
           ></v-text-field>
           <v-text-field
             v-model="user.address.city"
             :error-messages="nameErrors"
-            :counter="10"
+            :counter="15"
             label="City Name"
             required
           ></v-text-field>
@@ -73,14 +73,14 @@
           <v-text-field
             v-model="user.company.companyname"
             :error-messages="nameErrors"
-            :counter="10"
+            :counter="15"
             label="Company Name"
             required
           ></v-text-field>
           <v-text-field
             v-model="user.company.catchPhrase"
             :error-messages="nameErrors"
-            :counter="10"
+            :counter="30"
             label="CatchPhrase Name"
             required
           ></v-text-field>
@@ -105,6 +105,7 @@ import { required, maxLength, email, integer } from 'vuelidate/lib/validators'
 
 export default {
   mixins: [validationMixin],
+  name: 'register',
 
   validations: {
     user: {
@@ -114,7 +115,7 @@ export default {
       },
       username: {
         required,
-        maxLength: maxLength(15)
+        maxLength: maxLength(20)
       },
       email: {
         required,
@@ -131,27 +132,31 @@ export default {
       },
       address: {
         street: {
-          required
+          required,
+          maxLength: maxLength(20)
         },
         suite: {
-          required
+          required,
+          maxLength: maxLength(15)
         },
         city: {
-          required
+          required,
+          maxLength: maxLength(15)
         },
         zipcode: {
           required,
-          integer
+          integer,
+          maxLength: maxLength(10)
         }
       },
       company: {
         companyname: {
           required,
-          maxLength: maxLength(10)
+          maxLength: maxLength(15)
         },
         catchPhrase: {
           required,
-          maxLength: maxLength(10)
+          maxLength: maxLength(30)
         },
         bs: {
           required,
@@ -210,17 +215,17 @@ export default {
     },
 
     clear  () {
-      this.name = ''
-      this.username = ''
-      this.email = ''
-      this.phone = ''
-      this.address.street = ''
-      this.address.suite = ''
-      this.address.city = ''
-      this.address.zipcode = ''
-      this.company.companyname = ''
-      this.company.catchPhrase = ''
-      this.company.bs = ''
+      this.user.name = ''
+      this.user.username = ''
+      this.user.email = ''
+      this.user.phone = ''
+      this.user.address.street = ''
+      this.user.address.suite = ''
+      this.user.address.city = ''
+      this.user.address.zipcode = ''
+      this.user.company.companyname = ''
+      this.user.company.catchPhrase = ''
+      this.user.company.bs = ''
     }
   },
   computed: {

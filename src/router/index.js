@@ -63,6 +63,14 @@ const routes = [
     beforeEnter: (to, from, next) => {
       if (!store.getters.isLoggedIn) { next() } else { next({ name: 'Home' }) }
     }
+  },
+  {
+    path: '/profile-page',
+    name: 'Profile Page',
+    component: () => import('@/views/profile.vue'),
+    beforeEnter: (to, from, next) => {
+      if (store.getters.isLoggedIn) { next() } else { next({ name: 'Home' }) }
+    }
   }
 
 ]
