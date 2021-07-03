@@ -9,7 +9,8 @@ export default new Vuex.Store({
     darkMode: false,
     loading: false,
     posts: JSON.parse(localStorage.getItem('posts')),
-    user: JSON.parse(localStorage.getItem('user'))
+    user: JSON.parse(localStorage.getItem('user')),
+    Albums: JSON.parse(localStorage.getItem('Albums'))
   },
   mutations: {
     toggleDrawer (state) {
@@ -28,6 +29,10 @@ export default new Vuex.Store({
     setAuthUser (state, user) {
       state.user = user
       localStorage.setItem('user', JSON.stringify(user))
+    },
+    setAlbums (state, Albums) {
+      state.Albums = Albums
+      localStorage.setItem('Albums', JSON.stringify(Albums))
     }
   },
   getters: {

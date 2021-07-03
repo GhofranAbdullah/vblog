@@ -33,5 +33,6 @@
     </v-btn>
     <v-btn outlined text @click="$router.push({ name: 'Register' })"> Register </v-btn>
     <v-btn outlined text @click="$router.push({ name: 'Profile Page' })"> Profile Page </v-btn>
+    <v-btn outlined text @click="$router.push({ name: 'Albums' })"> Albums </v-btn>
   </v-app-bar>
 </template>

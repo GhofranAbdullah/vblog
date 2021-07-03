@@ -71,6 +71,19 @@ const routes = [
     beforeEnter: (to, from, next) => {
       if (store.getters.isLoggedIn) { next() } else { next({ name: 'Home' }) }
     }
+  },
+  {
+    path: '/albums',
+    name: 'Albums',
+    component: () => import('@/views/Albums/Albums.vue')
+
+  },
+  {
+    path: '/albums/:id/user/:userId',
+    name: 'ShowAlbum',
+    component: () => import('@/views/Albums/ShowAlbum.vue'),
+    props: route => ({ AlbumId: route.params.id, userId: route.params.userId })
+
   }
 
 ]
