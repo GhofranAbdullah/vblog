@@ -28,6 +28,10 @@ export default new Vuex.Store({
     setAuthUser (state, user) {
       state.user = user
       localStorage.setItem('user', JSON.stringify(user))
+    },
+    logout (state) {
+      state.user = null
+      localStorage.removeItem('user')
     }
   },
   getters: {

@@ -41,6 +41,12 @@
         </v-list-item-icon>
         <v-list-item-title>Starred</v-list-item-title>
       </v-list-item>
+      <v-list-item link @click="$store.commit('logout')">
+        <v-list-item-icon>
+          <v-icon>mdi-star</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>Logout</v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
