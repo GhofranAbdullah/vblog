@@ -1,6 +1,5 @@
 <template>
   <v-navigation-drawer v-model="$store.state.drawer" app>
-    <v-icon v-model="$store.state.darkMode"></v-icon>
     <v-list>
       <v-list-item class="px-2">
         <v-list-item-avatar>
