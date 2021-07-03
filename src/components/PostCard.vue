@@ -36,7 +36,7 @@
         outlined
         rounded
         text
-        v-if="post.userId == $store.state.user.id"
+        v-if="post.userId == ($store.state.user ? $store.state.user.id : null)"
         @click="$router.push({ name: 'EditPost', params: { id: post.id } })"
       >
         Edit

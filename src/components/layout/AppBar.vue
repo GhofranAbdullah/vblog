@@ -32,5 +32,6 @@
       <v-icon>mdi-open-in-new</v-icon>
     </v-btn>
     <v-btn outlined text @click="$router.push({ name: 'Register' })"> Register </v-btn>
+    <v-btn outlined text @click="$router.push({ name: 'Profile Page' })"> Profile Page </v-btn>
   </v-app-bar>
 </template>
